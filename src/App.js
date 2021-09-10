@@ -1,32 +1,32 @@
-import { useEffect, useState } from 'react';
 import './App.css';
+import Store from './components/Store';
 import HomeAdmin from './components/HomeAdmin';
-import Login from './components/Login';
-import { auth } from './firebase';
+import AuthUser from './components/AuthUser';
+import React from 'react';
+import {
+  HashRouter,
+  Switch,
+  Route, 
+} from "react-router-dom";
 
-function App() {
-  const [user, setUser] = useState(null)
-  useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(userAuth => {
-      const user = {
-        uid: userAuth?.uid,
-        email: userAuth?.email
-      }
-      if (userAuth) {
-        console.log(userAuth)
-        setUser(user)
-      } else {
-        setUser(null)
-      }
-    })
-    return unsubscribe
-  }, [])
-  return (
-    <div className="App">
-      {user ? <HomeAdmin /> : <Login />}
-
-    </div>
-  );
+class App extends React.Component {
+  
+  render() {
+    
+      return (
+        <HashRouter>
+          <div className="App content">
+            <Switch>
+              
+              <Route path="/homeAdmin" component={HomeAdmin}/>  
+              <Route path="/Authentication" component={AuthUser}/> 
+              <Route path="/" component={Store}/>
+                
+            </Switch>
+          </div>
+        </HashRouter>
+      );
+  }
 }
 
 export default App;

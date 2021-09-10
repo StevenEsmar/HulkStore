@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { auth } from '../firebase';
 import {Form, Button} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import{BsArrowLeft} from "react-icons/bs";
 import './Login.css'
 
-//const Login = () => {
 class Login extends React.Component {
     constructor(props){
         super(props);
@@ -39,7 +38,7 @@ class Login extends React.Component {
             this.state.emailUser,
             this.state.passwordUser
         ).then(user => {
-            console.log(user)
+            //console.log(user)
         }).catch(error => {
             //console.log(error.code);
             this.setState({
@@ -53,7 +52,7 @@ class Login extends React.Component {
             this.state.emailUser,
             this.state.passwordUser
         ).then(user => {
-            console.log(user)
+            //console.log(user)
         }).catch(error => {
             console.log(error)
         }) 

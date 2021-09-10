@@ -13,7 +13,7 @@ function AuthUser() {
         email: userAuth?.email
       }
       if (userAuth) {
-        console.log(userAuth)
+        //console.log(userAuth)
         setUser(user)
       } else {
         setUser(null)
